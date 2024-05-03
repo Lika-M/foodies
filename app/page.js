@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import ImageSlideshow from '@/components/slideshow/slideshow.js';
 import classes from './page.module.css';
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <header className={classes.header}>
         <section className={classes.slideshow}>
 
+          <ImageSlideshow />
 
         </section>
         <section>

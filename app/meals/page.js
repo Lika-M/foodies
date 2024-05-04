@@ -1,11 +1,24 @@
 import Link from 'next/link';
 
+import styles from './page.module.css';
+import MealsGrid from '@/components/meals/meals-grid.js';
+
 export default function Meals() {
     return (
         <>
-            <h1 style={{ textAlign: 'center', color: 'white' }}>This is the Meals page!</h1>
-            <p><Link href="/meals/something-new">New Page</Link></p>
-            <p><Link href="/meals/other-new">Other Page</Link></p>
+            <header className={styles.header}>
+                <h1>Delicious meals, created{' '}
+                    <span className={styles.highlight}>by you</span></h1>
+                <p>Chose your favorite recipe and cook it yourself. It is easy and fun!</p>
+                <p className={styles.cta}>
+                    <Link href="/meals/share">
+                        Share Your Favorite Recipe
+                    </Link>
+                </p>
+            </header>
+            <main className={styles.main}>
+                <MealsGrid meals={[]}/>
+            </main>
         </>
     );
 }

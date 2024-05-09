@@ -1,4 +1,5 @@
 import Image from 'next/image.js';
+import { notFound } from 'next/navigation.js';
 
 import * as service from '@/service/meals.js'
 import styles from './page.module.css';
@@ -6,7 +7,11 @@ import styles from './page.module.css';
 export default async function MealDetails({ params }) {
 
     const meal = await service.getMealBySlug(params.mealSlug);
-    const instructions = meal.instructions.replace(/\n/g, '<br />')
+    
+    if(!meal){
+        notFound();
+    }
+    const instructions = meal.instructions.replace(/\n/g, '<br />');
 
 
     return (

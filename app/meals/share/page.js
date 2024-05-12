@@ -18,11 +18,11 @@ export default function ShareMeal() {
                     <div className={styles.row}>
                         <p>
                             <label htmlFor="name">Your name</label>
-                            <input type="text" id="name" name="name" required />
+                            <input type="text" id="creator" name="creator" required />
                         </p>
                         <p>
                             <label htmlFor="email">Your email</label>
-                            <input type="email" id="email" name="email" required />
+                            <input type="email" id="creator_email" name="creator_email" required />
                         </p>
                     </div>
                     <p>

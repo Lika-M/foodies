@@ -5,6 +5,11 @@ import * as service from '@/service/meals.js';
 import MealsGrid from '@/components/meals/meals-grid.js';
 import styles from './page.module.css';
 
+export const metadata = {
+    title: 'All meals',
+    description: 'Browse the delicious meals shared by our community',
+};
+
 async function FetchedMeals() {
     const meals = await service.getAllMeals();
     return <MealsGrid meals={meals} />;

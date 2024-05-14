@@ -4,11 +4,24 @@ import { notFound } from 'next/navigation.js';
 import * as service from '@/service/meals.js'
 import styles from './page.module.css';
 
+export async function generateMetadata({ params }) {
+    const meal = await service.getMealBySlug(params.mealSlug);
+
+    if (!meal) {
+        notFound();
+    }
+
+    return {
+        title: meal.title,
+        description: meal.summary,
+    }
+}
+
 export default async function MealDetails({ params }) {
 
     const meal = await service.getMealBySlug(params.mealSlug);
-    
-    if(!meal){
+
+    if (!meal) {
         notFound();
     }
     const instructions = meal.instructions.replace(/\n/g, '<br />');
